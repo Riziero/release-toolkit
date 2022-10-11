@@ -30,10 +30,6 @@ module Fastlane
       # rubocop: enable Naming/VariableNumber
       KEYS_TO_COMMENT_HASH = REQUIRED_KEYS_TO_COMMENT_HASH.merge(OPTIONAL_KEYS_TO_LABELS_HASH).freeze
 
-      def self.required_keys
-        REQUIRED_KEYS
-      end
-
       def self.run(params)
         @metadata_directory = params[:metadata_directory]
         @release_version = params[:release_version]

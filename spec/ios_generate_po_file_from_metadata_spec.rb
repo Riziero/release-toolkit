@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Fastlane::Actions::IosGeneratePoFileFromMetadataAction do
   it 'create the .po file based on the `.txt` files in `metadata_directory` along with `other_sources` param' do
     in_tmp_dir do |dir|
-      required_keys = described_class.required_keys
+      required_keys = described_class.REQUIRED_KEYS
 
       # For each key create a key.txt file whose content is "value key"
       required_keys.each do |key|
@@ -95,7 +95,7 @@ describe Fastlane::Actions::IosGeneratePoFileFromMetadataAction do
 
   it 'test missing required .txt file' do
     in_tmp_dir do |dir|
-      required_keys = described_class.required_keys
+      required_keys = described_class.REQUIRED_KEYS
 
       # For each key create a key.txt file whose content is "value key"
       required_keys[1..].each do |key|
@@ -113,7 +113,7 @@ describe Fastlane::Actions::IosGeneratePoFileFromMetadataAction do
 
   it 'test additional loose `.txt` files in `metadata_directory`' do
     in_tmp_dir do |dir|
-      required_keys = described_class.required_keys
+      required_keys = described_class.REQUIRED_KEYS
       # For each key create a key.txt file whose content is "value key"
       required_keys.each do |key|
         write_to = File.join(dir, "#{key}.txt")
